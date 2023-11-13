@@ -6,7 +6,6 @@ from pathlib import Path
 
 from scenarios.common.scenario import ChatMLAppScenario
 
-
 def find_subclasses(base_class, folder_path):
     subclasses = []
     sys.path.insert(0, folder_path)
@@ -16,6 +15,10 @@ def find_subclasses(base_class, folder_path):
             if file.endswith(".py"):
                 module_path = Path(root) / file
                 relative_module_path = module_path.relative_to(folder_path).with_suffix("")
+                
+                if "venv" in str(relative_module_path):
+                    continue
+                
                 module_name = str(relative_module_path).replace("/", ".").replace("\\", ".")
 
                 if any(name in module_name for name in ["__init__", "common", "code-completion", "gpt3langchain", "puzzle"]):
@@ -36,7 +39,7 @@ def find_subclasses(base_class, folder_path):
 
 
 def menu():
-    scenarios = find_subclasses(ChatMLAppScenario, os.path.dirname(__file__))
+    scenarios = find_subclasses(ChatMLAppScenario, os.path.dirname(__file__) + '\\scenarios')
 
     while True:
         print("Which scenario would you like to run?")
@@ -64,3 +67,4 @@ def menu():
 
 if __name__ == "__main__":
     menu()
+
