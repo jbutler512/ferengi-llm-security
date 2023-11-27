@@ -1,8 +1,11 @@
 # Chat app implementing the latest ChatML protocol
 import os
 import openai
+from dotenv import load_dotenv
 
-openai.api_key = os.getenv["OPENAI_API_KEY"]
+load_dotenv()
+
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 class DemoApp:

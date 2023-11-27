@@ -1,3 +1,5 @@
 langchain~=0.0.89
 rich~=13.3.1
 openai~=0.27.4
+#python-dotenv==1.0.0
+#unclear if this is correct version, use command:  pip install python-dotenv
