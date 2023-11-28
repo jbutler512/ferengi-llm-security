@@ -107,6 +107,23 @@ class ChatMLApp(DemoApp):
                 if args[0] == "fetch_new":
                     if self.emails:
                         system_response = "\n".join(self.emails)
+                        #Attempt at Defense by User authentication:
+                        #Adding a feature where, when the email keyword is used, the assistant will
+                        #print the message contents to the user, and allow them to reply with Yes or No
+                        
+                        # No will stop the assistant from sending the email with malicious instructions
+                        # Yes will allow the email to be sent.
+                        # Block: this caused the program to exit as intended with the no keyword
+                        #        however, the yes keyword also caused the scenerio to fail due to unforseen complexities.
+                        
+                        
+                        #print(system_response)
+                        #authenticate_email = input("Would you like to send the following email? (Yes or No)")
+                        
+                        #if (authenticate_email == "Yes"):
+                            #continue
+                        #else:
+                            #break
                         self.emails = []
                     else:
                         system_response = "No new emails"

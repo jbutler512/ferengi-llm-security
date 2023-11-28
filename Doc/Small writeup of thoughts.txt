@@ -1,0 +1,8 @@
+https://platform.openai.com/docs/models //link containing the following data:
+GPT4 model was updated on June13, 2023, which replaced the model used while this repo was in developement. 
+Some inconsistencies can be attributed to the non-deterministic nature of LLMs, while more I believe could be
+attributed to the updates the model recieved since release.
+
+Non deterministic nature of LLM's
+
+https://arxiv.org/pdf/2308.02828.pdf
